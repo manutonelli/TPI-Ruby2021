@@ -1,8 +1,6 @@
 module Polycon
   module Commands
     module Appointments
-      require 'polycon/Functions/Appointment'
-      require 'polycon/Functions/Assistant'
       class Create < Dry::CLI::Command
         desc 'Create an appointment'
 
@@ -14,10 +12,13 @@ module Polycon
         option :notes, required: false, desc: "Additional notes for appointment"
 
         def call(date:, professional:, name:, surname:, phone:, notes: nil)
-          Assistant.professional_check(name)
-          Appointment.new(date).create
+          Polycon::Functions::Assistant.posicionarseEnPolycon #posicion polycon
+          if Polycon::Functions::Appointment.posicionamientoEn(professional) #posicion en directorio del profesional
+            Polycon::Functions::Appointment.crear(date, name, surname, phone, notes) #crear
+            warn "El turno se registro con exito"
+          end
         end
-      end
+
 
       class Show < Dry::CLI::Command
         desc 'Show details for an appointment'
@@ -117,4 +118,5 @@ module Polycon
       end
     end
   end
-end
+  end
+  end

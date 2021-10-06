@@ -11,4 +11,9 @@ class Assistant
   def self.professional_check name
     abort("Este profesional no existe") unless Dir.exist? name
   end
+
+  def self.posicionarseEnPolycon
+    Dir.chdir(ENV["HOME"])
+    Dir.chdir(".polycon")
+  end
 end
