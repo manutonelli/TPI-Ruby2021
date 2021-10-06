@@ -19,13 +19,9 @@ module Polycon
 
         argument :name, required: true, desc: 'Name of the professional'
 
-        example [
-          '"Alma Estevez"      # Deletes a new professional named "Alma Estevez" if they have no appointments',
-          '"Ernesto Fernandez" # Deletes a new professional named "Ernesto Fernandez" if they have no appointments'
-        ]
-
         def call(name: nil)
-          warn "TODO: Implementar borrado de la o el profesional con nombre '#{name}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+          Professional.new(name).delete
+          puts "El profesional con nombre '#{name}' fue eliminado de forma exitosa."
         end
       end
 
