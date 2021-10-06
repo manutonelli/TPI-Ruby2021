@@ -27,13 +27,8 @@ module Polycon
 
       class List < Dry::CLI::Command
         desc 'List professionals'
-
-        example [
-          "          # Lists every professional's name"
-        ]
-
         def call(*)
-          warn "TODO: Implementar listado de profesionales.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+          Professional.list
         end
       end
 

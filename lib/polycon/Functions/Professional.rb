@@ -13,4 +13,8 @@ class Professional
     Dir.delete name
   end
 
+  def self.list
+    Dir.each_child("#{File.join(Dir.home,"/.polycon/")}") {|file|puts "Nombre: #{file}"}
+  end
+
 end
