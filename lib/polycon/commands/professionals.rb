@@ -1,18 +1,16 @@
 module Polycon
   module Commands
     module Professionals
+      require 'polycon/functions/Professional'
       class Create < Dry::CLI::Command
         desc 'Create a professional'
 
         argument :name, required: true, desc: 'Full name of the professional'
 
-        example [
-          '"Alma Estevez"      # Creates a new professional named "Alma Estevez"',
-          '"Ernesto Fernandez" # Creates a new professional named "Ernesto Fernandez"'
-        ]
 
         def call(name:, **)
-          warn "TODO: Implementar creación de un o una profesional con nombre '#{name}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+          Professional.new(name).create
+          puts "El profesional con nombre '#{name}' fue creado de forma exitosa."
         end
       end
 

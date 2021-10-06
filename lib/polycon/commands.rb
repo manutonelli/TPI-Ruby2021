@@ -25,5 +25,6 @@ module Polycon
 
     register 'version', Version, aliases: ['v', '-v', '--version']
   end
+
 end
 
