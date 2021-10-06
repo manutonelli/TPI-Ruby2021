@@ -38,12 +38,9 @@ module Polycon
         argument :old_name, required: true, desc: 'Current name of the professional'
         argument :new_name, required: true, desc: 'New name for the professional'
 
-        example [
-          '"Alna Esevez" "Alma Estevez" # Renames the professional "Alna Esevez" to "Alma Estevez"',
-        ]
-
         def call(old_name:, new_name:, **)
-          warn "TODO: Implementar renombrado de profesionales con nombre '#{old_name}' para que pase a llamarse '#{new_name}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+          Professional.new(old_name).rename new_name
+          puts "Se cambio el nombre de '#{old_name}' a '#{new_name}"
         end
       end
     end

@@ -17,4 +17,8 @@ class Professional
     Dir.each_child("#{File.join(Dir.home,"/.polycon/")}") {|file|puts "Nombre: #{file}"}
   end
 
+  def rename (new_name)
+    FileUtils.mv(name,new_name)
+  end
+
 end
