@@ -1,6 +1,8 @@
 module Polycon
   module Commands
     module Appointments
+      require 'polycon/Functions/Appointment'
+      require 'polycon/Functions/Assistant'
       class Create < Dry::CLI::Command
         desc 'Create an appointment'
 
@@ -11,12 +13,9 @@ module Polycon
         option :phone, required: true, desc: "Patient's phone number"
         option :notes, required: false, desc: "Additional notes for appointment"
 
-        example [
-          '"2021-09-16 13:00" --professional="Alma Estevez" --name=Carlos --surname=Carlosi --phone=2213334567'
-        ]
-
         def call(date:, professional:, name:, surname:, phone:, notes: nil)
-          warn "TODO: Implementar creación de un turno con fecha '#{date}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+          Assistant.professional_check(name)
+          Appointment.new(date).create
         end
       end
 

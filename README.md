@@ -109,3 +109,37 @@ puede requerir algún trabajo adicional de tu parte.
   * `lib/polycon/version.rb` define la versión de la herramienta, utilizando [SemVer](https://semver.org/lang/es/).
 * `bin/`: directorio donde reside cualquier archivo ejecutable, siendo el más notorio `polycon`
   que se utiliza como punto de entrada para el uso de la herramienta.
+
+
+>Mi modelo
+> Dentro de commands se encontraran los files principales segun el template
+> Dentro de Functions se encontraran los archivos que tendran la funcionalidad
+> Appointment.rb contendra las funciones para realizar las tareas de turnos
+> Professional.rb tendra las funciones de profesionales, basicas como crear, borrar, modificar y listar
+> Assistant.rb no sera mas que un archivo auxiliar con metodos que suelen repetirse para solo tener que llamarlos.
+> 
+> 
+> Profesionales: faltan verificaciones
+> Crear (hecho) - verificar que no exista otro
+> Modificar (hecho) - verificar que no sea el mismo nombre o ya este en uso
+> Listar (hecho) - else: mensaje lista vacia
+> Borrar (hecho) - verificar que exista
+> 
+> Turnos:
+> Creación
+> Reprogramación de un turno (cambio de fecha y/u hora). 
+> Modificación de los datos de un turno (excluida su fecha). 
+> Listado de turnos por profesional y día. 
+> Visualización de detalles de un turno por profesional y fecha. 
+> Cancelación de un turno por profesional y fecha. 
+> Cancelación de todos los turnos por profesional.
+> 
+> 
+> Persistencia
+> sin hacer 
+>
+> 
+> 
+> 
+> NOTAS
+> 
